@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shifar Tanjam - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace'],
+                    },
+                    colors: {
+                        glass: {
+                            light: 'rgba(255, 255, 255, 0.4)',
+                            dark: 'rgba(15, 23, 42, 0.4)',
+                            border: 'rgba(255, 255, 255, 0.2)',
+                        },
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #60a5fa, #a78bfa, #2dd4bf);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 text-slate-900 dark:bg-[#0f172a] dark:text-slate-100 transition-colors duration-500 overflow-x-hidden selection:bg-blue-500 selection:text-white">
+
+    <!-- Background Orbs -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-500/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob">
+        </div>
+        <div
+            class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-blue-500/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-cyan-500/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex flex-nowrap items-center justify-between gap-4 px-5 py-3 rounded-full glass-panel max-w-[95%] w-auto transition-all duration-300 border border-white/20 shadow-lg">
+        <div
+            class="flex-1 min-w-0 flex items-center gap-4 overflow-x-auto no-scrollbar whitespace-nowrap mask-gradient pr-4">
+            <a href="index.html"
+                class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white/10 hover:text-blue-400">Home</a>
+            <a href="journey.html"
+                class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white/10 hover:text-blue-400">Journey</a>
+            <a href="projects.html"
+                class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white/10 hover:text-blue-400">Projects</a>
+            <a href="contact.html"
+                class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all bg-white/10 text-blue-400">Contact</a>
+        </div>
+        <button id="theme-toggle"
+            class="shrink-0 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors border border-white/10"
+            aria-label="Toggle Theme">
+            <span id="theme-icon">🌙</span>
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 pt-32 pb-20">
+        <div class="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 font-mono">Let's <span
+                            class="text-gradient">Connect</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
+                        I'm currently available for freelance work or full-time opportunities.
+                        Drop me a message and let's discuss your next project!
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="p-3 rounded-full bg-blue-500/10 text-blue-500 text-xl">📞</span>
+                            <span class="font-medium opacity-80">01793-000282</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="p-3 rounded-full bg-green-500/10 text-green-500 text-xl">✉️</span>
+                            <span class="font-medium opacity-80">shifar282@gmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="p-3 rounded-full bg-red-500/10 text-red-500 text-xl">📍</span>
+                            <span class="font-medium opacity-80">Nikunja-2, Dhaka</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex gap-4">
+                        <a href="https://linkedin.com/in/shifar"
+                            class="p-3 rounded-xl bg-white/5 hover:bg-blue-600 hover:text-white transition-all border border-white/10">LinkedIn</a>
+                        <a href="https://github.com/shifar282"
+                            class="p-3 rounded-xl bg-white/5 hover:bg-gray-800 hover:text-white transition-all border border-white/10">GitHub</a>
+                    </div>
+                </div>
+
+                <form id="contactForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2 opacity-70">Name</label>
+                        <input type="text" required
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2 opacity-70">Email</label>
+                        <input type="email" required
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2 opacity-70">Message</label>
+                        <textarea rows="4" required
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-sm"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-8 text-sm opacity-50 border-t border-white/5">
+        <p>&copy; 2026 Shifar Tanjam. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+        if (localStorage.theme === 'light') { html.classList.remove('dark'); themeIcon.innerText = '☀️'; }
+        else { html.classList.add('dark'); themeIcon.innerText = '🌙'; }
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) { localStorage.theme = 'dark'; themeIcon.innerText = '🌙'; }
+            else { localStorage.theme = 'light'; themeIcon.innerText = '☀️'; }
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = '✓ Sent Successfully';
+            btn.classList.add('bg-green-600');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-green-600');
+                e.target.reset();
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>
