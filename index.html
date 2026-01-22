@@ -11,6 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -143,11 +144,35 @@
         }
 
         /* Hide scrollbar for IE, Edge and Firefox */
+        /* Hide scrollbar for IE, Edge and Firefox */
         .no-scrollbar {
             -ms-overflow-style: none;
             /* IE and Edge */
             scrollbar-width: none;
             /* Firefox */
+        }
+
+        /* Infinite Scroll Animation */
+        .scroller {
+            mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+            -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+            overflow: hidden;
+        }
+
+        .scroller-inner {
+            width: max-content;
+            flex-wrap: nowrap;
+            animation: scroll 30s linear infinite;
+        }
+
+        .scroller-inner:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            to {
+                transform: translate(calc(-50% - 1rem));
+            }
         }
     </style>
 </head>
@@ -175,122 +200,396 @@
     </div>
 
     <!-- Navigation -->
-    <nav <!-- Navigation -->
-        <nav
-            class="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex flex-nowrap items-center justify-between gap-4 px-6 py-3 rounded-full glass-panel max-w-[95%] w-auto transition-all duration-300 border border-white/20">
-            <div class="flex items-center gap-4 overflow-x-auto no-scrollbar whitespace-nowrap mask-gradient pr-2">
-                <a href="index.html"
-                    class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all bg-white/10 text-blue-400">Home</a>
-                <a href="journey.html"
-                    class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white/10 hover:text-blue-400">Journey</a>
-                <a href="projects.html"
-                    class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white/10 hover:text-blue-400">Projects</a>
-                <a href="contact.html"
-                    class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white/10 hover:text-blue-400">Contact</a>
-            </div>
-            <button id="theme-toggle"
-                class="shrink-0 p-2 rounded-full hover:bg-white/10 transition-colors border border-white/10"
-                aria-label="Toggle Theme">
-                <span id="theme-icon">🌙</span>
-            </button>
-        </nav>
+    <nav
+        class="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex flex-nowrap items-center justify-between gap-4 px-6 py-3 rounded-full glass-panel max-w-[95%] w-auto transition-all duration-300 border border-white/20 shadow-lg backdrop-blur-md">
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar whitespace-nowrap pr-2">
+            <a href="#"
+                class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all bg-white/10 text-blue-400">Home</a>
+            <a href="journey.html"
+                class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white/10 hover:text-blue-400">Journey</a>
+            <a href="projects.html"
+                class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white/10 hover:text-blue-400">Projects</a>
+            <a href="#contact"
+                class="nav-link px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white/10 hover:text-blue-400">Contact</a>
+        </div>
+        <button id="theme-toggle"
+            class="shrink-0 p-2 rounded-full hover:bg-white/10 transition-colors border border-white/10"
+            aria-label="Toggle Theme">
+            <span id="theme-icon">🌙</span>
+        </button>
+    </nav>
 
-        <!-- Main Content -->
-        <main class="container mx-auto px-6 pt-32 pb-20">
-            <!-- Hero Section -->
-            <section class="min-h-[80vh] flex flex-col items-center justify-center text-center relative">
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-28 space-y-32">
+
+        <!-- Hero Section -->
+        <section
+            class="min-h-[80vh] flex flex-col items-center justify-center text-center relative pointer-events-none">
+            <div
+                class="pointer-events-auto glass-panel p-10 rounded-3xl max-w-4xl w-full border border-white/20 shadow-2xl animate-float">
+
+                <!-- Profile Image -->
+                <div class="mb-8 flex justify-center">
+                    <div
+                        class="relative w-48 h-48 rounded-full p-1 bg-gradient-to-tr from-blue-500 to-indigo-500 shadow-lg shadow-blue-500/30">
+                        <img src="assets/profile.png" alt="Shifar Tanjam"
+                            class="w-full h-full rounded-full object-cover border-4 border-[#0f172a] dark:border-white/10 bg-white dark:bg-slate-800">
+                    </div>
+                </div>
+
                 <div
-                    class="glass-panel p-10 rounded-3xl max-w-3xl w-full border border-white/20 shadow-2xl animate-float">
+                    class="mb-6 inline-block px-5 py-2 rounded-full bg-blue-500/10 text-blue-500 dark:text-blue-300 text-sm font-bold tracking-widest uppercase border border-blue-500/20">
+                    Full Stack Developer
+                </div>
 
-                    <!-- Profile Image -->
-                    <div class="mb-6 flex justify-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 font-mono tracking-tight leading-tight">
+                    Hi, I'm <span class="text-gradient">Shifar Tanjam</span>
+                </h1>
+
+                <p
+                    class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Building digital experiences that blend <span class="text-blue-500 font-semibold">innovation</span>
+                    with <span class="text-purple-500 font-semibold">aesthetics</span>.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                    <a href="projects.html"
+                        class="neumorphic-btn px-8 py-4 rounded-full font-bold text-blue-600 dark:text-blue-400 hover:scale-105 transition-transform w-full sm:w-auto shadow-lg">
+                        View My Work
+                    </a>
+                    <a href="Shifar Tanjam CV.pdf" download
+                        class="px-8 py-4 rounded-full font-bold border-2 border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 hover:text-blue-500 transition-colors w-full sm:w-auto flex items-center justify-center gap-2">
+                        <span>📄</span> Download CV
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex gap-6 justify-center mt-6 pt-6 border-t border-slate-200 dark:border-white/10">
+                    <a href="https://github.com/shifar282" target="_blank"
+                        class="text-3xl hover:text-blue-500 hover:scale-110 transition-all opacity-70 hover:opacity-100">
+                        <i class="devicon-github-original"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/shifar" target="_blank"
+                        class="text-3xl hover:text-blue-600 hover:scale-110 transition-all opacity-70 hover:opacity-100">
+                        <i class="devicon-linkedin-plain"></i>
+                    </a>
+                    <a href="mailto:shifar282@gmail.com"
+                        class="text-3xl hover:text-red-500 hover:scale-110 transition-all opacity-70 hover:opacity-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Am I Section -->
+        <section id="about" class="scroll-mt-32">
+            <div class="glass-panel p-8 md:p-14 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+
+                <h2 class="text-4xl md:text-5xl font-bold mb-10 text-center font-mono">Who <span
+                        class="text-gradient">Am I?</span></h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 text-lg text-slate-600 dark:text-slate-300 leading-loose">
+                        <p>
+                            I'm a <strong class="text-blue-500">Computer Science graduate</strong> with a passion for
+                            solving complex problems through elegant code. My journey started with a curiosity for how
+                            things work, which quickly evolved into a career in full-stack development.
+                        </p>
+                        <p>
+                            I specialize in the <strong class="text-purple-500">MERN stack</strong> and modern web
+                            technologies. I love creating interfaces that are not just functional, but also intuitive
+                            and delightful to use. When I'm not coding, I'm exploring the latest tech trends or
+                            optimizing my development workflow.
+                        </p>
+                        <div class="flex gap-4 pt-4">
+                            <div class="flex-1 glass-card p-4 rounded-xl text-center border border-blue-500/20">
+                                <div class="text-2xl font-bold text-blue-500">3+</div>
+                                <div class="text-xs uppercase tracking-wider opacity-70">Years Coding</div>
+                            </div>
+                            <div class="flex-1 glass-card p-4 rounded-xl text-center border border-purple-500/20">
+                                <div class="text-2xl font-bold text-purple-500">20+</div>
+                                <div class="text-xs uppercase tracking-wider opacity-70">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group">
                         <div
-                            class="relative w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-blue-500 to-indigo-500 shadow-lg shadow-blue-500/30">
-                            <img src="assets/profile.png" alt="Shifar Tanjam"
-                                class="w-full h-full rounded-full object-cover border-4 border-[#0f172a] dark:border-white/10 bg-white dark:bg-slate-800">
+                            class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl rotate-3 opacity-50 group-hover:rotate-6 transition-transform blur-lg">
+                        </div>
+                        <div
+                            class="glass-card p-8 rounded-2xl border border-white/20 relative backdrop-blur-xl hover:-translate-y-2 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold mb-4">My Core Philosophy</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-3">
+                                    <span class="text-green-400 text-xl">✓</span> Clean, maintainable code
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-green-400 text-xl">✓</span> User-centric design
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-green-400 text-xl">✓</span> Continuous learning
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-green-400 text-xl">✓</span> Pixel-perfect attention to detail
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Skills Section (Auto Scrolling) -->
+        <section id="skills" class="space-y-8">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 font-mono">My <span class="text-gradient">Skills</span>
+                </h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+                    A constantly expanding toolkit of languages, frameworks, and tools I use to bring ideas to life.
+                </p>
+            </div>
+
+            <!-- Scroller 1 -->
+            <div class="scroller bg-white/5 border-y border-white/5 py-8 backdrop-blur-sm" data-speed="fast">
+                <div class="scroller-inner flex gap-12 items-center">
+                    <!-- Original Set -->
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-react-original text-5xl group-hover:text-blue-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">React</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-nextjs-original text-5xl group-hover:text-white transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Next.js</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-javascript-plain text-5xl group-hover:text-yellow-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">JavaScript</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-typescript-plain text-5xl group-hover:text-blue-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">TypeScript</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-nodejs-plain text-5xl group-hover:text-green-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Node.js</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-express-original text-5xl group-hover:text-white transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Express</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-mongodb-plain text-5xl group-hover:text-green-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">MongoDB</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i
+                            class="devicon-tailwindcss-original text-5xl group-hover:text-cyan-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Tailwind</span>
+                    </div>
+
+                    <!-- Duplicate Set for Seamless Loop -->
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-react-original text-5xl group-hover:text-blue-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">React</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-nextjs-original text-5xl group-hover:text-white transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Next.js</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-javascript-plain text-5xl group-hover:text-yellow-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">JavaScript</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-typescript-plain text-5xl group-hover:text-blue-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">TypeScript</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-nodejs-plain text-5xl group-hover:text-green-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Node.js</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-express-original text-5xl group-hover:text-white transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Express</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-mongodb-plain text-5xl group-hover:text-green-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">MongoDB</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i
+                            class="devicon-tailwindcss-original text-5xl group-hover:text-cyan-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Tailwind</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroller 2 (Reverse or Different Tools) -->
+            <div class="scroller bg-white/5 border-y border-white/5 py-8 backdrop-blur-sm" data-direction="right"
+                data-speed="slow">
+                <div class="scroller-inner flex gap-12 items-center" style="animation-direction: reverse;">
+                    <!-- Set 2 -->
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-python-plain text-5xl group-hover:text-yellow-300 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Python</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-git-plain text-5xl group-hover:text-red-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Git</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-github-original text-5xl group-hover:text-white transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">GitHub</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-html5-plain text-5xl group-hover:text-orange-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">HTML5</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-css3-plain text-5xl group-hover:text-blue-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">CSS3</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-bootstrap-plain text-5xl group-hover:text-purple-600 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Bootstrap</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-vscode-plain text-5xl group-hover:text-blue-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">VS Code</span>
+                    </div>
+
+                    <!-- Duplicate Set 2 -->
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-python-plain text-5xl group-hover:text-yellow-300 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Python</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-git-plain text-5xl group-hover:text-red-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Git</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-github-original text-5xl group-hover:text-white transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">GitHub</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-html5-plain text-5xl group-hover:text-orange-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">HTML5</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-css3-plain text-5xl group-hover:text-blue-500 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">CSS3</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-bootstrap-plain text-5xl group-hover:text-purple-600 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">Bootstrap</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group min-w-[80px]">
+                        <i class="devicon-vscode-plain text-5xl group-hover:text-blue-400 transition-colors"></i>
+                        <span class="text-sm font-mono opacity-60">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use the same contact section code as before, but wrapped in a section tag -->
+        <section id="contact" class="scroll-mt-32">
+            <div class="glass-panel p-8 md:p-14 rounded-3xl border border-white/10 shadow-2xl max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6 font-mono">Let's <span
+                                class="text-gradient">Connect</span></h2>
+                        <p class="text-slate-500 dark:text-slate-400 mb-10 leading-relaxed text-lg">
+                            I'm currently available for freelance work or full-time opportunities.
+                            Drop me a message and let's discuss your next project!
+                        </p>
+
+                        <div class="space-y-6">
+                            <div
+                                class="flex items-center gap-5 glass-card p-4 rounded-xl border-transparent hover:border-blue-500/30 transition-all">
+                                <span class="p-3 rounded-full bg-blue-500/10 text-blue-500 text-2xl">📞</span>
+                                <span class="font-medium opacity-80 text-lg">01793-000282</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-5 glass-card p-4 rounded-xl border-transparent hover:border-green-500/30 transition-all">
+                                <span class="p-3 rounded-full bg-green-500/10 text-green-500 text-2xl">✉️</span>
+                                <span class="font-medium opacity-80 text-lg">shifar282@gmail.com</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-5 glass-card p-4 rounded-xl border-transparent hover:border-red-500/30 transition-all">
+                                <span class="p-3 rounded-full bg-red-500/10 text-red-500 text-2xl">📍</span>
+                                <span class="font-medium opacity-80 text-lg">Nikunja-2, Dhaka</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div
-                        class="mb-4 inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-500 dark:text-blue-300 text-sm font-semibold tracking-wider uppercase border border-blue-500/20">
-                        Portfolio 2026
-                    </div>
-                    <h1 class="text-5xl md:text-7xl font-bold mb-6 font-mono tracking-tight">
-                        Hi, I'm <span class="text-gradient">Shifar Tanjam</span>
-                    </h1>
-                    <p
-                        class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        Computer Science Graduate & Full-Stack Developer. Specialize in building secure, scalable, and
-                        visually stunning web applications.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="projects.html"
-                            class="neumorphic-btn px-8 py-3.5 rounded-full font-semibold text-blue-600 dark:text-blue-400 hover:scale-105 transition-transform w-full sm:w-auto">
-                            View Work
-                        </a>
-                        <a href="Shifar Tanjam CV.pdf" download
-                            class="px-8 py-3.5 rounded-full font-semibold border-2 border-slate-300 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 hover:text-blue-500 transition-colors w-full sm:w-auto flex items-center justify-center gap-2">
-                            <span>📄</span> Download CV
-                        </a>
-                    </div>
+                    <form id="contactForm" class="space-y-5 bg-white/5 p-6 rounded-2xl border border-white/5">
+                        <h3 class="text-xl font-bold mb-2">Send a Message</h3>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 opacity-70">Name</label>
+                            <input type="text" required
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 opacity-70">Email</label>
+                            <input type="email" required
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 opacity-70">Message</label>
+                            <textarea rows="4" required
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-sm"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1">
+                            Send Message
+                        </button>
+                    </form>
                 </div>
+            </div>
+        </section>
 
-                <!-- Stats/Skills Quick View -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 w-full max-w-4xl">
-                    <div class="glass-card p-6 rounded-2xl text-center">
-                        <div class="text-3xl mb-2">🚀</div>
-                        <h3 class="font-bold text-lg mb-1">IT Support</h3>
-                        <p class="text-sm opacity-70">Infrastructure & Maintenance</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl text-center">
-                        <div class="text-3xl mb-2">💡</div>
-                        <h3 class="font-bold text-lg mb-1">Full-Stack</h3>
-                        <p class="text-sm opacity-70">MERN & CRUD Operations</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl text-center">
-                        <div class="text-3xl mb-2">🛡️</div>
-                        <h3 class="font-bold text-lg mb-1">Security</h3>
-                        <p class="text-sm opacity-70">Data Integrity & Backup</p>
-                    </div>
-                </div>
-            </section>
-        </main>
+    </main>
 
-        <footer class="text-center py-8 text-sm opacity-50 border-t border-white/5">
-            <p>&copy; 2026 Shifar Tanjam. All rights reserved.</p>
-        </footer>
+    <footer class="text-center py-8 text-sm opacity-50 border-t border-white/5">
+        <p>&copy; 2026 Shifar Tanjam. All rights reserved.</p>
+    </footer>
 
-        <script>
-            // Theme Toggle Logic
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const themeIcon = document.getElementById('theme-icon');
-            const html = document.documentElement;
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
 
-            if (localStorage.theme === 'light') {
-                html.classList.remove('dark');
-                themeIcon.innerText = '☀️';
-            } else {
-                html.classList.add('dark');
+        if (localStorage.theme === 'light') {
+            html.classList.remove('dark');
+            themeIcon.innerText = '☀️';
+        } else {
+            html.classList.add('dark');
+            themeIcon.innerText = '🌙';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
                 themeIcon.innerText = '🌙';
+            } else {
+                localStorage.theme = 'light';
+                themeIcon.innerText = '☀️';
             }
+        });
 
-            themeToggleBtn.addEventListener('click', () => {
-                html.classList.toggle('dark');
-                if (html.classList.contains('dark')) {
-                    localStorage.theme = 'dark';
-                    themeIcon.innerText = '🌙';
-                } else {
-                    localStorage.theme = 'light';
-                    themeIcon.innerText = '☀️';
-                }
-            });
-
-            window.addEventListener('load', () => {
-                const loader = document.getElementById('loading');
-                loader.style.opacity = '0';
-                setTimeout(() => { loader.style.display = 'none'; }, 500);
-            });
-        </script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loading');
+            loader.style.opacity = '0';
+            setTimeout(() => { loader.style.display = 'none'; }, 500);
+        });
+    </script>
 </body>
 
 </html>
